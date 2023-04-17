@@ -3,6 +3,7 @@ body {
   font-size: 16px;
 }
 
+/* added header styling to make it look like the example gif */
 header {
   display: flex;
   flex-direction: column;

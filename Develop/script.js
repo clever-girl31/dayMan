@@ -16,6 +16,12 @@ $(document).ready(function () {
   // create two digit variable to represent id of each hour's box. had to add a 0 to hour-9 in the html 
   $('.time-block').each(function() {
     var idHour = $(this).attr('id').slice(-2)
+    // grabs items from local storage to be displayed back on table
+    var storedData = localStorage.getItem($(this).attr('id'))
+    // if stored data exists, print to each corresponding text area
+    if (storedData) {
+      $(this).find('textarea.description').val(storedData)
+    }
     // applies past/present/future classes on condition of relationship b/t current hour and hour represented in box id.
     if (currentHour == idHour) {
       $(this).addClass('present')        
@@ -25,11 +31,6 @@ $(document).ready(function () {
       $(this).addClass('future')
     }
   })
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
   // creates a variable for the #currentday div
   var currentDay = $('#currentDay')
   // creates a variable to represent current day provided by dayjs
