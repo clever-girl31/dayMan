@@ -12,7 +12,7 @@ $(document).ready(function () {
   //
   var saveBtn = document.querySelectorAll('.saveBtn')
   $(saveBtn).click(function() {
-    var textinput = $('textarea.description').val()
+    var textinput = $(this).siblings('textarea.description').val()
     var parentId = $(this).parent().attr('id')
     localStorage.setItem(parentId, textinput)
     console.log(parentId)
